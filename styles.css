@@ -53,8 +53,12 @@ li:hover img.logo {
     margin: 1em;
 }
 
-h2 {
+textarea {
     margin: 0em 15em;
+    align-content: center;
+    resize: none;
+    overflow: hidden;
+    width: 60vw;
     padding: 0.5em;
     background-color: #F1F1F1;
     border-radius: 1em;
@@ -86,6 +90,7 @@ a.cherry {
 
 .carousel-track {
   display: flex;
+  padding: 1em;
   width: 100vw;
   transition: transform 0.5s ease;
   align-items: center;
@@ -122,4 +127,82 @@ button#next {
 
 .slide {
     background-color: #F6EAEA;
+}
+
+.search-bar {
+    text-align: center;
+}
+
+.brands.logos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2em 0em;
+    flex-wrap: wrap;
+}
+
+.brands h2{
+    padding: 1em 2em;
+}
+
+.brands.logos div {
+    width: 220px;
+    height: 220px;
+    padding: 4em 5em;
+    margin: 2em;
+    border: 1px solid;
+    align-content: center;
+    background-repeat: no-repeat;
+}
+
+.brand p {
+    transition: all 0.5s ease 0.5s;
+}
+
+.brand:hover p {
+    font-size: 0px;
+    transition: all 0.5s ease 0.5s;
+}
+
+.marcelaKoury {
+    background-image: url(../img/marcelaKoury.jpg);
+    background-size: contain;
+    background-position: center;
+}
+
+.brands .brand{
+    transition: all 0.5s ease 0.5s;
+}
+
+.brands .brand:hover{
+    width: 250px;
+    height: 250px;
+    box-shadow: 0px 0px 15px #7A0000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 1, 1) 20ms;
+}
+
+.sigry {
+    background-image: url(../img/sigry.jpg);
+    background-color: #F1F1F1;
+    background-size: contain;
+    background-position: center;
+}
+
+.kaury {
+    background-image: url(../img/kaury.png);
+    background-color: #f1f1f1;
+    background-size: contain;
+    background-position: center;
+}
+
+.natubel {
+    background-image: url(../img/natubel.jpg);
+    background-size: contain;
+    background-position: center;
+}
+
+.lody {
+    background-image: url(../img/lody.png);
+    background-size: cover;
+    background-position: center;
 }
