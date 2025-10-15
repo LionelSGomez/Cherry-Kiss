@@ -1,0 +1,37 @@
+<html lang="es">
+    <%- include ('./partials/head') %>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <a href="#"><li>Menú</li></a>
+                    <a class="cherry" href="/index.html"><li class="cherry">Cherry Kiss<img class="logo" src="img/cherrykiss2.png"></li></a>
+                    <a href="#"><li>Carrito</li></a>
+                </ul>
+            </nav>  
+            <div class="search-bar">
+                <textarea placeholder="Buscar"></textarea>
+            </div>
+        </header>
+        <main>
+            <div class="carousel">
+                <div class="carousel-track">
+                    <% banners.forEach(b => { %>
+                    <div class="slide"><img src="/img/<%= b.image %>" alt="<%= b.alt %>"></div>
+                    <% }) %>
+                </div>
+                <button id="prev"><i class="fa-solid fa-chevron-left"></i></button>
+                <button id="next"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+            <section class="brands">
+                <h2>Marcas Destacadas</h2>
+                <div class="brands logos">
+                    <% brands.forEach(brand => { %>
+                    <a href="#"><div class="brand <%= brand.name %>"><img src="/img/<%= brand.image %>"></div></a>
+                    <% }) %>
+                </div>
+            </section>
+        </main>
+        <%- include ('./partials/footer') %>
+    </body>
+</html>
