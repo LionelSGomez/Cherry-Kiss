@@ -146,10 +146,11 @@ button#next {
 }
 
 .brands.logos .brand img {
-  width: 220px;
-  height: 220px;
-  object-fit: contain;
-  margin: 1em;
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    margin: 1em;
+    transition: all 0.5s ease 0.5s;
 }
 
 .brand p {
@@ -161,12 +162,7 @@ button#next {
     transition: all 0.5s ease 0.5s;
 }
 
-
-.brands .brand{
-    transition: all 0.5s ease 0.5s;
-}
-
-.brand img:hover{
+.brands .brand img:hover{
     width: 250px;
     height: 250px;
     box-shadow: 0px 0px 15px #7A0000;
