@@ -1,12 +1,25 @@
-const track = document.querySelector('.carousel-track');
-const slides = document.querySelectorAll('.slide');
-let index = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
 
-document.getElementById('next').onclick = () => {
-  index = (index + 1) % slides.length;
-  track.style.transform = `translateX(-${index * 100}vw)`;
-};
-document.getElementById('prev').onclick = () => {
-  index = (index - 1 + slides.length) % slides.length;
-  track.style.transform = `translateX(-${index * 100}vw)`;
-};
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+  
+});
+});
+

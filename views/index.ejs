@@ -21,14 +21,24 @@
             </div>
         </header>
         <main>
-            <div class="carousel">
-                <div class="carousel-track">
-                    <% banners.forEach(b => { %>
-                    <div class="slide"><img src="/img/<%= b.image %>" alt="<%= b.alt %>"></div>
-                    <% }) %>
-                </div>
-                <button id="prev"><i class="fa-solid fa-chevron-left"></i></button>
-                <button id="next"><i class="fa-solid fa-chevron-right"></i></button>
+            <!-- Slider main container -->
+            <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+            <% banners.forEach(b => { %>
+                                <div class="swiper-slide"><img src="/img/<%= b.image %>" alt="<%= b.alt %>"></div>
+                                <% }) %>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
             </div>
             <section class="brands">
                 <h2>Marcas Destacadas</h2>
