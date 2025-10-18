@@ -171,7 +171,7 @@ p {
     flex-wrap: wrap;
 }
 
-.brands h2{
+h2{
     padding: 1em 2em;
 }
 
@@ -201,5 +201,11 @@ p {
   margin: 2em;
   transition: all 0.3s ease;
   text-align: center;
+}
+/* ######## */
+/* ##TAB MARCAS### */
+h3 {
+    text-align: center;
+    padding: 1em 0em;
 }
 /* ######## */

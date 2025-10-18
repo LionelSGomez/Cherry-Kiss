@@ -11,10 +11,10 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 ////////////////////////////////////////
 app.get('/', (req, res) => {
-  res.render('index', { banners: data.banners, brands: data.brands });
+  res.render('home', { banners: data.banners, brands: data.brands });
 });
 app.get('/brands', (req, res) => {
-    res.render('brands', { brands: data.brands });
+    res.render('brands', { brands: data.brandsimg });
 });
 ///// Listen URL + console log ////////
 app.listen(3000, () => console.log('Servidor corriendo en http://localhost:3000'));
