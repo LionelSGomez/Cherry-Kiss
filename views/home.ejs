@@ -14,7 +14,7 @@
             <div class="swiper-wrapper">
                 <!-- Slides -->
             <% banners.forEach(b => { %>
-                                <div class="swiper-slide"><img src="/img/<%= b.image %>" alt="<%= b.alt %>"></div>
+                                <div class="swiper-slide"><img src="/img/home/banners/<%= b.image %>" alt="<%= b.alt %>"></div>
                                 <% }) %>
             </div>
             <!-- If we need pagination -->
@@ -31,7 +31,7 @@
                 <h2>Marcas Destacadas</h2>
                 <div class="brands logos">
                     <% brands.forEach(brand => { %>
-                    <a href="#"><div class="brand <%= brand.name %>"><img src="/img/<%= brand.image %>"></div></a>
+                    <a href="#"><div class="brand <%= brand.name %>"><img src="/img/home/logos/<%= brand.image %>"></div></a>
                     <% }) %>
                 </div>
             </section>
