@@ -14,7 +14,8 @@
                     <h3><%= brand.name %></h3>
                     <section class="<%= brand.class %>" style="display: flex;align-items: center;justify-content: space-around">
                         <% brand.image.forEach(img => { %>
-                            <img src="/img/<%= img.src %>" alt="<%= img.alt %>" style="height: 70vh">
+                            <div style="text-align: center;"><h4><%= img.art %></h4></div>
+                            <img src="<%= img.path %>" alt="<%= img.alt %>" style="height: 70vh">
                         <% }) %>
                     </section>
                 <% }) %>

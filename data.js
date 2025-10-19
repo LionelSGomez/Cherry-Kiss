@@ -20,16 +20,22 @@ function getBanners() {
 function getBrands() {
   const brandFolder = path.join(basePath, '/home/logos');
   return fs.readdirSync(brandFolder)
-    .filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file))
+    .filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file)) // Regex "\." busca el punto (".") de forma literal. "(jpg|jpeg...)" las posibles extensiones. "$" indica el final del string. "i" para que no distinga entre mayúsculas y minúsculas. 
     .map(file => ({
       name: path.parse(file).name,
       image: file
     }));
 }
 
-/* // Función para generar brandsimg dinámicamente
+function extractArt(filename) {
+  const match = filename.match(/art(\d+)/i); //Los parentesis capturan por separado el bloque de dígitos después de "art" ["art1111", "1111"]
+  return match ? match[1] : null;  // Por eso acá se pide el índice 1
+}
+
+
+// Función para generar brandsimg dinámicamente
 function getBrandsImg() {
-  const folder = path.join(basePath, 'brandsimg');
+  const folder = path.join(basePath, 'marcas');
   const brands = fs.readdirSync(folder);
 
   return brands.map(brandName => {
@@ -39,15 +45,27 @@ function getBrandsImg() {
     return {
       name: brandName,
       image: files.map((file, i) => ({
-        src: file,
+        path: `/img/marcas/${brandName}/${file}`,
+        art: extractArt(file),
+        name: file,
         alt: `Articulo ${i + 1}`
       }))
     };
   });
-} */
+}
+
+
+
+
+
+
+
+
+        
+
 
 module.exports = {
   banners: getBanners(),
   brands: getBrands(),
-  // brandsimg: getBrandsImg()
+  brandsimg: getBrandsImg()
 };
