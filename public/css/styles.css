@@ -227,3 +227,28 @@ h3 {
 .navright>a {
     padding: 1em;
 }
+
+section div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 1em;
+}
+   
+.brands {
+    margin: 1.5em;
+}
+
+.brands section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.brands section img {
+    height: 70vh;
+    max-width: 25vw;
+}

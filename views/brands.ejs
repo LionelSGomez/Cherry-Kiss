@@ -8,14 +8,20 @@
             </div>
         </header>
         <main>
-            <section style="margin: 1.5em;">
+            <section class="brands">
                 <h2>Marcas</h2>
                 <% brands.forEach(brand => { %>
                     <h3><%= brand.name %></h3>
-                    <section class="<%= brand.class %>" style="display: flex;align-items: center;justify-content: space-around">
+                    <section class="<%= brand.class %>">
                         <% brand.image.forEach(img => { %>
-                            <div style="text-align: center;"><h4><%= img.art %></h4></div>
-                            <img src="<%= img.path %>" alt="<%= img.alt %>" style="height: 70vh">
+                            <div>
+                                <h4><%= img.art %></h4>
+                                <img 
+                                    class="<%= img.type %><%= img.adic ? ' ' + img.art + ' multiple' : '' %>" 
+                                    src="<%= img.path %>" 
+                                    alt="<%= img.alt %>"
+                                >                                   
+                            </div>
                         <% }) %>
                     </section>
                 <% }) %>
