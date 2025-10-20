@@ -23,11 +23,12 @@ main {
     background-color: var(--main-bg-color);
 }
 
-
+header {
+    padding: 1em;
+}
 /* ### NAV */
 nav{
     position: relative;
-    margin: 1em;
 }
 
 ul {
@@ -39,9 +40,7 @@ ul {
 }
 
 li {
-    font-size: 2em;
     display: block;
-    padding: 1em;
 }
 
 a {
@@ -50,15 +49,22 @@ a {
 
 .navcenter {
     position: absolute;
-    left: calc(50% - 150px);
+    left: calc(50% - 72px);
 }
 
 li.cherry {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 300px;
-    height: 102px;
+    font-size: 2em;
+    width: 144px;
+    height: 50px;
+    text-transform: capitalize;
+    padding: 0em;
+    background-color: var(--secondary-color);
+    border-radius: 43%;
+    box-shadow: 3px 2px 12px 1px var(--main-bg-color);
+    border-radius: 0.6em;
 }
 
 .cherry {
@@ -76,7 +82,7 @@ li:hover {
 li:hover img.logo {
     transform: rotate(360deg);
     transition-duration: 1s;
-    top: 0.8em;
+    top: -0.5em;
     margin: 1em;
 }
 
@@ -103,7 +109,7 @@ p {
     padding: 0.9em;
     width: 3em;
     position: absolute;
-    top: -0.8em;
+    top: -1.5em;
     transition: all 1s ease 1s;
 }
 
@@ -116,11 +122,19 @@ p {
     align-items: center;
 }
 
+ul li {
+    text-transform: uppercase;
+    padding: 1em;
+    /* box-shadow: 3px 2px 12px 1px var(--main-bg-color); */
+    border-radius: 0.6em;
+}
+
+
 /* ######## */
 /* CARROUSEL */
 
 .swiper {
-    margin: 1vw 0vw;
+    margin: 1.5em 0vw;
     overflow: hidden;
     position: relative;
 }
@@ -209,3 +223,7 @@ h3 {
     padding: 1em 0em;
 }
 /* ######## */
+
+.navright>a {
+    padding: 1em;
+}
