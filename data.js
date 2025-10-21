@@ -27,9 +27,11 @@ function getBrands() {
     }));
 }
 
-function extractArt(filename) {
-  const match = filename.match(/art(\d+)/i); //Los parentesis capturan por separado el bloque de dígitos después de "art" ["art1111", "1111"]
-  return match ? match[1] : null;  // Por eso acá se pide el índice 1
+
+function extractAllName(filename) {
+  const regex = /(?<prefijo>\w+)?\-?art(?<art>\d+)(?<sufijo>[a-zA-Z]+)?\-?(?<adic>\d)?\.(?<ext>jpg|jpeg|png|webp)$/i;
+  const match = filename.match(regex);
+  return match ? match.groups : null;
 }
 
 
@@ -44,16 +46,22 @@ function getBrandsImg() {
 
     return {
       name: brandName,
-      image: files.map((file, i) => ({
-        path: `/img/marcas/${brandName}/${file}`,
-        art: extractArt(file),
-        name: file,
-        alt: `Articulo ${i + 1}`
-      }))
+      class: brandName.toLowerCase().replace(/\s+/g, '-'),
+      image: files.map(file => {
+        const data = extractAllName(file);
+        return {
+          path: `/img/marcas/${brandName}/${file}`,
+          art: data?.art || '',          // número de artículo
+          name: file,                    // nombre de archivo
+          type: data?.prefijo || 'conjunto',      // color (si existe)
+          desc: data?.sufijo || '',      // descripción (si existe)
+          adic: data?.adic || '',        // si existe alguna foto adicional al mismo articulo
+          alt: `Artículo ${data?.art || ''} de la marca ${brandName}`
+        };
+      })
     };
   });
 }
-
 
 
 

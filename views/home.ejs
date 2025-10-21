@@ -1,5 +1,7 @@
 <html lang="es">
     <%- include ('./partials/head') %>
+        <script src="/js/swiper.js" defer></script>
+    </head>
     <body>
         <header>
             <%- include ('./partials/nav') %>
@@ -11,10 +13,10 @@
             <!-- Slider main container -->
             <div class="swiper">
             <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper home-banners">
                 <!-- Slides -->
             <% banners.forEach(b => { %>
-                                <div class="swiper-slide"><img src="/img/home/banners/<%= b.image %>" alt="<%= b.alt %>"></div>
+                                <div class="swiper-slide home-slides"><img src="/img/home/banners/<%= b.image %>" alt="<%= b.alt %>"></div>
                                 <% }) %>
             </div>
             <!-- If we need pagination -->

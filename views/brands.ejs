@@ -1,5 +1,7 @@
 <html lang="es">
     <%- include ('./partials/head') %>
+        <script src="/js/swiper2.js" defer></script>
+    </head>
     <body>
         <header>
             <%- include ('./partials/nav') %>
@@ -8,15 +10,36 @@
             </div>
         </header>
         <main>
-            <section style="margin: 1.5em;">
-                <h2>Marcas</h2>
+            <section class="brand">
                 <% brands.forEach(brand => { %>
                     <h3><%= brand.name %></h3>
-                    <section class="<%= brand.class %>" style="display: flex;align-items: center;justify-content: space-around">
+                    <section class="<%= brand.class %>">
+                    <!-- Slider main container -->
+                    <div class="swiper <%= brand.class %>-swiper">
+                        <!-- Wrapper -->
+                        <div class="swiper-wrapper">
                         <% brand.image.forEach(img => { %>
-                            <div style="text-align: center;"><h4><%= img.art %></h4></div>
-                            <img src="<%= img.path %>" alt="<%= img.alt %>" style="height: 70vh">
+                            <div class="swiper-slide">
+                            <h4><%= img.art %></h4>
+                            <img 
+                                class="<%= img.type %><%= img.adic ? ' ' + img.art + ' multiple' : '' %>" 
+                                src="<%= img.path %>" 
+                                alt="<%= img.alt %>"
+                            >
+                            </div>
                         <% }) %>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="swiper-pagination"></div>
+
+                        <!-- Navigation -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+
+                        <!-- Scrollbar -->
+                        <div class="swiper-scrollbar"></div>
+                    </div>
                     </section>
                 <% }) %>
             </section>
