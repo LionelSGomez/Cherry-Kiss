@@ -239,18 +239,18 @@ section div {
     position: relative;
 }
    
-.brands {
+.brand {
     margin: 1.5em;
 }
 
-.brands section {
+.brand section {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
-.brands section img {
+.brand section img {
     height: 70vh;
     margin: 0em auto;
 }
