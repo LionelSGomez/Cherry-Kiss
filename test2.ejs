@@ -1,0 +1,31 @@
+<div class="swiper-wrapper">
+  <% 
+    let currentArt = null; 
+    brand.image.forEach((img, index) => {
+      // extraer prefijo del nombre de archivo o del campo art
+      const artBase = img.art; 
+
+      // si cambia el artículo, cerramos el contenedor anterior y abrimos uno nuevo
+      if (artBase !== currentArt) {
+        if (currentArt !== null) { %>
+          </div> <!-- cierre del contenedor anterior -->
+        <% }
+        currentArt = artBase; %>
+        <div class="swiper-slide <%= artBase %> contenedorMultiplesImg">
+      <% } %>
+
+        <img 
+          class="<%= img.type %><%= img.adic ? ' multiple' : '' %>" 
+          src="<%= img.path %>" 
+          alt="<%= img.alt %>"
+        >
+
+      <% 
+      // si es la última imagen o el próximo art es distinto, cerramos el contenedor
+      const next = brand.image[index + 1];
+      if (!next || next.art !== currentArt) { %>
+        </div>
+      <% }
+    }); 
+  %>
+</div>

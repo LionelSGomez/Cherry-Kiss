@@ -64,14 +64,6 @@ function getBrandsImg() {
 }
 
 
-
-
-
-
-
-        
-
-
 module.exports = {
   banners: getBanners(),
   brands: getBrands(),
