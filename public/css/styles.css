@@ -133,8 +133,8 @@ ul li {
 /* ######## */
 /* CARROUSEL */
 
-.swiper {
-    margin: 1.5em 0vw;
+.brand .swiper {
+    padding: 3em;
     overflow: hidden;
     position: relative;
 }
@@ -145,26 +145,31 @@ ul li {
   height: 70%;
   padding: 1em 0em;
   transition: transform 0.5s ease;
-  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .swiper-slide img{
-    width: 100vw;
     height: 70vh;
     object-fit: contain;
 }
 
-.swiper-horizontal div{
+.home-banners .home-slides{
+    text-align: center;
     color: var(--main-color);
-    align-content: center;
-} 
+}
 
 .swiper-pagination span{
     background: var(--main-color);
 }
 
 .swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal{
-    bottom: 20px;
+    display: flex;
+    bottom: 2em;
+    height: 25px;
+    padding: 0% 10%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .swiper-scrollbar div{
@@ -228,7 +233,7 @@ h3 {
     padding: 1em;
 }
 
-section div {
+/* section div {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -237,18 +242,18 @@ section div {
     padding-bottom: 1em;
     max-width: 30vw;
     position: relative;
-}
+} */
    
 .brand {
     margin: 1.5em;
 }
 
-.brand section {
+/* .brand section {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-evenly;
-}
+} */
 
 .brand section img {
     height: 70vh;
@@ -258,8 +263,14 @@ section div {
 h4 {
     position: absolute;
     bottom: 40px;
-    right: 25px;
+    right: 0px;
     background-color: black;
     padding: 0.5em;
     color: var(--main-bg-color);
 }
+
+.swiper-wrapper div{
+    color: var(--main-color);
+    text-align: end;
+} 
+
