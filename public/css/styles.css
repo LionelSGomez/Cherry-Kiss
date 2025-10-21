@@ -235,6 +235,8 @@ section div {
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 1em;
+    max-width: 30vw;
+    position: relative;
 }
    
 .brands {
@@ -244,11 +246,20 @@ section div {
 .brands section {
     display: flex;
     align-items: center;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .brands section img {
     height: 70vh;
-    max-width: 25vw;
+    margin: 0em auto;
+}
+
+h4 {
+    position: absolute;
+    bottom: 40px;
+    right: 25px;
+    background-color: black;
+    padding: 0.5em;
+    color: var(--main-bg-color);
 }
