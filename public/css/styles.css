@@ -149,10 +149,18 @@ ul li {
     object-fit: contain;
 }
 
-.home-banners .home-slides{
-    text-align: center;
+
+.swiper-wrapper .home-banners .home-slides {
     color: var(--main-color);
+    display: flex;
+    text-align: center;
 }
+
+.swiper-wrapper.home-banners div{
+    flex-shrink: 0;
+    justify-content: center;
+}
+
 
 .swiper-pagination span{
     background: var(--main-color);
