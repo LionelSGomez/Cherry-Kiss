@@ -125,7 +125,6 @@ p {
 ul li {
     text-transform: uppercase;
     padding: 1em;
-    /* box-shadow: 3px 2px 12px 1px var(--main-bg-color); */
     border-radius: 0.6em;
 }
 
@@ -134,18 +133,15 @@ ul li {
 /* CARROUSEL */
 
 .brand .swiper {
-    padding: 3em;
     overflow: hidden;
     position: relative;
+    width: 100%;
 }
 
 .swiper .swiper-wrapper {
   display: flex;
-  width: 100vw;
-  height: 70%;
-  padding: 1em 0em;
+  height: 65vh;
   transition: transform 0.5s ease;
-  flex-wrap: nowrap;
 }
 
 .swiper-slide img{
@@ -164,7 +160,7 @@ ul li {
 
 .swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal{
     display: flex;
-    bottom: 2em;
+    bottom: 0px;
     height: 25px;
     padding: 0% 10%;
     flex-direction: row;
@@ -233,36 +229,10 @@ h3 {
     padding: 1em;
 }
 
-/* section div {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-bottom: 1em;
-    max-width: 30vw;
-    position: relative;
-} */
-   
-.brand {
-    margin: 1.5em;
-}
-
-/* .brand section {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-} */
-
-.brand section img {
-    height: 70vh;
-    margin: 0em auto;
-}
 
 h4 {
     position: absolute;
-    bottom: 40px;
+    bottom: 0px;
     right: 0px;
     background-color: black;
     padding: 0.5em;
@@ -270,23 +240,29 @@ h4 {
 }
 
 .swiper-wrapper div{
+    flex-shrink: unset;
     color: var(--main-color);
-    text-align: end;
     display: flex;
-    flex-wrap: nowrap;
+    justify-content: flex-end;
 } 
 
-/* Si el contenedor tiene al menos 4 imágenes */
-.contenedorMultiplesImg:has(img:nth-of-type(4)) {
-display: grid;
-grid-template-columns: repeat(5, 1fr);
-grid-template-rows: repeat(5, 1fr);
-grid-column-gap: 0px;
-grid-row-gap: 0px;
+img.thumb {
+    height: 100px;
+    margin: 0px !important;
+    opacity: 40%;
+    transition: opacity 1s ease;
 }
 
-.alternative1 { grid-area: 1 / 1 / 6 / 4; }
-.alternative2 { grid-area: 1 / 1 / 8 / 4; }
-.alternative3 { grid-area: 1 / 4 / 3 / 6; }
-.alternative4 { grid-area: 3 / 4 / 5 / 6; }
-.alternative5 { grid-area: 5 / 4 / 7 / 6; }
+img.thumb:hover{
+    opacity: 100%;
+}
+
+.brand section {
+    margin: 0em 3em;
+}
+
+.brand .swiper-thumbs .swiper-wrapper {
+    height: 100px;
+    width: 100%;
+    top: 15px;
+}

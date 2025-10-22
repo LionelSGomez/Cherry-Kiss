@@ -1,35 +1,47 @@
-document.querySelectorAll('.swiper').forEach(swiperEl => {
-  // 1. Crear la instancia
-  const swiper = new Swiper(swiperEl, {
-    direction: 'horizontal',
-    slidesPerView: 1,
-    spaceBetween: 10,
-    freeModeMomentumRatio: 2,
-    loop: true,
-    mousewheel: false,        // permite mover con la rueda del mouse
-    autoplay: {
-      delay: 3000,             // 3 segundos entre slides
-      disableOnInteraction: true
-    },         
-    pagination: {
-      el: swiperEl.querySelector('.swiper-pagination'),
-      clickable: true,
-    },
-    scrollbar: {
-      el: swiperEl.querySelector('.swiper-scrollbar'),
-    },
-  });
+document.querySelectorAll('.brand section').forEach(sectionEl => {
+  const thumbsEl = sectionEl.querySelector('.swiper[class*="-thumbs-swiper"]');
+  const mainEl   = sectionEl.querySelector('.swiper[class*="-main-swiper"]');
 
-  // 2. Autoplay inteligente con IntersectionObserver
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        swiper.autoplay.start();   // arranca cuando entra en pantalla
-      } else {
-        swiper.autoplay.stop();    // se pausa cuando sale de vista
-      }
+  if (thumbsEl && mainEl) {
+    // 1. Inicializamos el swiper de thumbnails
+    const thumbsSwiper = new Swiper(thumbsEl, {
+      spaceBetween: 10,
+      slidesPerView: 20,
+      loop: false,
+      freeMode: true,
+      watchSlidesProgress: true,
     });
-  }, { threshold: 0.3 }); // al menos 30% visible
 
-  observer.observe(swiperEl);
+    // 2. Inicializamos el swiper principal y lo vinculamos con el de thumbs
+    const mainSwiper = new Swiper(mainEl, {
+      direction: 'horizontal',
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: true
+      },
+      freeMode: {
+      enabled: true,
+      momentumBounceRatio: 3,
+      },
+      thumbs: {
+        swiper: thumbsSwiper,
+      },
+    });
+
+    // 3. Autoplay inteligente con IntersectionObserver
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          mainSwiper.autoplay.start();
+        } else {
+          mainSwiper.autoplay.stop();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(mainEl);
+  }
 });

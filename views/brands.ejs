@@ -10,67 +10,44 @@
             </div>
         </header>
         <main>
-          <section class="brand">
+            <section class="brand">
             <% brands.forEach(brand => { %>
-            <h3><%= brand.name %></h3>
-            <section class="<%= brand.class %>">
-                <!-- Slider main container -->
-                <div class="swiper <%= brand.class %>-swiper">
-                    <!-- Wrapper -->
+                <h3><%= brand.name %></h3>
+                <section class="<%= brand.class %>">
+
+                <!-- Swiper principal -->
+                <div class="swiper <%= brand.class %>-main-swiper">
                     <div class="swiper-wrapper">
-                        <% 
-                        for (let i = 0; i < brand.image.length; i++) {
-                        const img = brand.image[i];
-                        const art = img.art;
-                        const isMultiple = !!img.adic; // true si tiene sufijo, p.ej. -0, -1, etc.
-
-                        // Si esta imagen es parte de una serie (adic), abrimos contenedor y metemos todas las del mismo art consecutivas
-                        if (isMultiple) { 
-                    %>
-                        <div class="swiper-slide <%= art %> contenedorMultiplesImg">
-                            <h4><%= art %></h4>
-                            <img class="<%= img.type %> principal" id="img-<%= i %>"  src="<%= img.path %>" alt="<%= img.alt %>">
-                            <% 
-                                let reps = 1;
-                                // Avanzamos mientras las siguientes tengan el mismo art y también sean adic
-                                let j = i + 1;
-                                while (j < brand.image.length && brand.image[j].art === art && brand.image[j].adic) {
-                                const nextImg = brand.image[j];
-                            %>
-                            <h4><%= nextImg.art %></h4>
-                            <img class="<%= nextImg.type %> alternative<%= reps %>" id="img-<%= j %>" src="<%= nextImg.path %>" alt="<%= nextImg.alt %>">
-                            <% 
-                                j++;
-                                reps++;
-                                }
-                                // Actualizamos i para saltar las ya procesadas
-                                i = j - 1;
-                            %>
+                    <% brand.image.forEach((img, i) => { %>
+                        <div class="swiper-slide">
+                        <h4><%= img.art %></h4>
+                        <img 
+                            class="<%= img.type %>" 
+                            id="img-<%= brand.class %>-<%= i %>" 
+                            src="<%= img.path %>" 
+                            alt="<%= img.alt %>">
                         </div>
-                        <% 
-                        } else {
-                            // Imagen única (sin adic): un slide normal
-                    %>
-                        <div class="swiper-slide <%= art %> single">
-                            <h4><%= art %></h4>
-                            <img class="<%= img.type %>" src="<%= img.path %>" id="img-<%= i %>" alt="<%= img.alt %>">
-                        </div>
-                        <% 
-                        }
-                        } 
-                    %>
+                    <% }) %>
                     </div>
-
-                    <!-- Pagination -->
                     <div class="swiper-pagination"></div>
-
-                    <!-- Navigation -->
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
-
-                    <!-- Scrollbar -->
-                    <div class="swiper-scrollbar"></div>
                 </div>
+
+                <!-- Swiper de thumbnails -->
+                <div class="swiper <%= brand.class %>-thumbs-swiper">
+                    <div class="swiper-wrapper">
+                    <% brand.image.forEach((img, i) => { %>
+                        <div class="swiper-slide">
+                        <img 
+                            class="thumb" 
+                            src="<%= img.path %>" 
+                            alt="<%= img.alt %>">
+                        </div>
+                    <% }) %>
+                    </div>
+                </div>
+
                 </section>
             <% }) %>
             </section>
