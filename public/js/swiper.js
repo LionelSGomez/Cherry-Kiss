@@ -3,7 +3,10 @@ document.addEventListener('DOMContentLoaded', function () {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
-
+  autoplay: {
+        delay: 3000,
+        disableOnInteraction: true
+      },
   // If we need pagination
   pagination: {
     el: '.swiper-pagination',
