@@ -20,7 +20,7 @@
                     <div class="swiper-wrapper">
                     <% brand.image.forEach((img, i) => { %>
                         <div class="swiper-slide">
-                        <h4><%= img.art %></h4>
+                        <h4><%= img.desc ? img.art + ' ' + img.desc : img.art %></h4>
                         <img 
                             class="<%= img.type %>" 
                             id="img-<%= brand.class %>-<%= i %>" 

@@ -29,7 +29,7 @@ function getBrands() {
 
 
 function extractAllName(filename) {
-  const regex = /(?<prefijo>\w+)?\-?art(?<art>\d+)(?<sufijo>[a-zA-Z]+)?\-?(?<adic>\d)?\.(?<ext>jpg|jpeg|png|webp)$/i;
+  const regex = /(?<prefijo>\w+)?\-?art(?<art>\d+)\-?(?<adic>\d)?(?<sufijo>[a-zA-Z ]+)?\.(?<ext>jpg|jpeg|png|webp)$/i;
   const match = filename.match(regex);
   return match ? match.groups : null;
 }

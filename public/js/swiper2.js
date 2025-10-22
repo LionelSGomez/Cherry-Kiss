@@ -6,10 +6,11 @@ document.querySelectorAll('.brand section').forEach(sectionEl => {
     // 1. Inicializamos el swiper de thumbnails
     const thumbsSwiper = new Swiper(thumbsEl, {
       spaceBetween: 10,
-      slidesPerView: 20,
-      loop: false,
+      slidesPerView: 'auto',
       freeMode: true,
-      watchSlidesProgress: true,
+      watchSlidesProgress: false,
+      loop: false,
+      autoplay: false,
     });
 
     // 2. Inicializamos el swiper principal y lo vinculamos con el de thumbs
