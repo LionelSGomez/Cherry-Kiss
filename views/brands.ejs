@@ -19,11 +19,11 @@
                 <div class="swiper <%= brand.class %>-main-swiper">
                     <div class="swiper-wrapper">
                     <% brand.image.forEach((img, i) => { %>
-                        <div class="swiper-slide">
-                        <h4><%= img.desc ? img.art + ' ' + img.desc : img.art %></h4>
+                        <div class="swiper-slide" data-hash="slide<%= i+1 %>">
+                        <h4><img class="cherry-thumb" src="/img/cherrykiss2.png"></i> <%= img.desc ? img.art + ' ' + img.desc : img.art %></h4>
                         <img 
-                            class="<%= img.type %>" 
-                            id="img-<%= brand.class %>-<%= i %>" 
+                            class="<%= img.type %>"
+                            id="img-<%= brand.class %>-<%= i+1 %>" 
                             src="<%= img.path %>" 
                             alt="<%= img.alt %>">
                         </div>

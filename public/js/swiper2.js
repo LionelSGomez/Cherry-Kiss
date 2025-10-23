@@ -30,6 +30,7 @@ document.querySelectorAll('.brand section').forEach(sectionEl => {
       thumbs: {
         swiper: thumbsSwiper,
       },
+      hashNavigation:true,
     });
 
     // 3. Autoplay inteligente con IntersectionObserver

@@ -240,11 +240,17 @@ h3 {
 
 h4 {
     position: absolute;
+    display: flex;
     bottom: 0px;
     right: 0px;
-    background-color: black;
     padding: 0.5em;
-    color: var(--main-bg-color);
+    color: var(--white);
+    flex-direction: row;
+    align-items: center;
+    text-shadow: 1px 1px 0px black;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
 }
 
 .swiper-wrapper div{
@@ -273,4 +279,9 @@ img.thumb:hover{
     height: 100px;
     width: 100%;
     top: 15px;
+}
+
+img.cherry-thumb {
+    width: 20px;
+    height: 30px;
 }
