@@ -1,6 +1,9 @@
 document.querySelectorAll('.brand section').forEach(sectionEl => {
   const thumbsEl = sectionEl.querySelector('.swiper[class*="-thumbs-swiper"]');
   const mainEl   = sectionEl.querySelector('.swiper[class*="-main-swiper"]');
+  const hash = window.location.hash.replace('#slide', '');
+  const initialIndex = parseInt(hash, 10);
+
 
   if (thumbsEl && mainEl) {
     // 1. Inicializamos el swiper de thumbnails
@@ -30,7 +33,11 @@ document.querySelectorAll('.brand section').forEach(sectionEl => {
       thumbs: {
         swiper: thumbsSwiper,
       },
-      hashNavigation:true,
+      initialSlide: isNaN(initialIndex) ? 0 : initialIndex,
+      hashNavigation: {
+      watchState: true,
+      replaceState: true,
+  },
     });
 
     // 3. Autoplay inteligente con IntersectionObserver
